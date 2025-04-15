@@ -1,18 +1,22 @@
-import pyautogui
-import keyboard
-import threading
+import pyautogui            #automates mouse clicks
+import keyboard             #reads hotkeys' presses
+import threading            #runs the clicker in background
 import time
 
-clicking = False
+#variables
+clicking = False                    
 interval= 15.0
 
-def click_loop():
-    while True:
+#loop checking for the status of the flag
+#then clicking using pyautogui.click()
+def click_loop():                   
+    while True:                     
         if clicking:
             pyautogui.click()
         time.sleep(interval)
 
-def toggle_clicking():
+#toggles the flag status, whenever F6 is pressed
+def toggle_clicking():              
     global clicking
     clicking = not clicking
     print("CLicking", clicking)
